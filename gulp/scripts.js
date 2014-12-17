@@ -5,9 +5,9 @@
  *   note: app.js has to come first before other ng files
  * - use ng-annotate so DI works with minification (must be before uglify)
  * - uglify
+ * - lint (using jshint)
  *
  * - todo
- *   - setup lint
  *   - setup live reload server and watch task to reload the live reload 
  *   - setup ng-template thingy that concats them all into one req and js wraps it
  * // 6473
@@ -40,7 +40,7 @@ var gulp = require('gulp'),
         'public/services/**/**.js',
     ];
 
-gulp.task('jshint', function(){
+gulp.task('lint', function(){
     gulp.src(sourceFiles)
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'));
@@ -72,5 +72,5 @@ gulp.task('build', ['js', 'stamp']);
 
 // watch task - on js change re-run the min
 gulp.task('watch', function(){
-    gulp.watch(sourceFiles, ['jshint', 'js']);
+    gulp.watch(sourceFiles, ['lint', 'js']);
 });
