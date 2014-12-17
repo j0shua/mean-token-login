@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('MyApp')
 	.controller('SignupCtrl', function($scope, Auth){
 		$scope.signup = function(){
@@ -5,7 +7,6 @@ angular.module('MyApp')
 				name: $scope.displayName,
 				email: $scope.email,
 				password: $scope.password
-			})
-		}
-
+			});
+		};
 	});

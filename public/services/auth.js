@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('MyApp')
 	.factory('Auth', function($http, $location, $rootScope, $alert, $window) {
 		var token = $window.localStorage.token;
@@ -10,7 +12,6 @@ angular.module('MyApp')
 			return $http.post('auth/login', user)
 				.success(function(data){
 					$window.localStorage.token = data.token;
-					var payo
 					var payload = JSON.parse($window.atob(data.token.split('.')[1]));
             		$rootScope.currentUser = payload.user;
             		$location.path('/');
@@ -53,8 +54,8 @@ angular.module('MyApp')
               			animation: 'fadeZoomFadeDown',
               			type: 'material',
               			duration: 3
-              		})
-				})
+              		});
+				});
 		}
 
 		function logout(){

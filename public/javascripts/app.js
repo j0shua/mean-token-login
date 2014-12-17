@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('MyApp', [
 	'ngResource',
 	'ngMessages',
