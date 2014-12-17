@@ -1,4 +1,6 @@
 mean-token-login
 ================
 
-MEAN login using JWT tokens
+skeleton app using the MEAN stack
+    - login using JWT tokens
+    - gulp for build (run gulp watch|build)
